@@ -24,6 +24,8 @@ class PlanoController
       'idade' => $dados['idade'],
       'altura' => $dados['altura'] ,
       'peso'=> $dados['peso'],
+      'tmb' => $dados['tmb'],
+      'sexo' => $dados['sexo'],
       'objetivo' => $dados['objetivo'],
     ];
 
@@ -31,6 +33,8 @@ class PlanoController
       '{{idade}}' => $dados['idade'],
       '{{altura}}' => $dados['altura'],
       '{{peso}}' => $dados['peso'],
+      '{{tmb}}' => $dados['tmb'],
+      '{{sexo}}' => $dados['sexo'],
       '{{objetivo}}' => $dados['objetivo'],
     ]);
 

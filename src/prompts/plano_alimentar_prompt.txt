@@ -3,6 +3,8 @@ Crie um plano alimentar diário com 6 refeições para uma pessoa com os seguint
 - Idade: {{idade}} anos  
 - Altura: {{altura}} cm  
 - Peso: {{peso}} kg  
+- Tmb: {{tmb}}
+- Sexo: {{sexo}}
 - Objetivo: {{objetivo}}
 
 Formato desejado da resposta:
