@@ -17,7 +17,9 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock* ./
 COPY src/ ./
 
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader && composer dump-autoload --optimize --no-dev
+
+
 
 RUN a2enmod rewrite
 
