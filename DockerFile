@@ -1,5 +1,6 @@
 FROM php:8.2-apache
 
+# Instala dependências e extensões do PHP
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg62-turbo-dev \
@@ -10,16 +11,25 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd pdo pdo_mysql \
     && rm -rf /var/lib/apt/lists/*
 
+# Instala o Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY composer.json composer.lock* /var/www/html/
+# Cria diretório do projeto
+WORKDIR /var/www/html
 
+# Copia composer.json e composer.lock e instala dependências
+COPY composer.json composer.lock* ./
 RUN composer install --no-dev --optimize-autoloader
 
-COPY src/public/ /var/www/html/
+# Copia TODO o código fonte (não só public/)
+COPY src/ ./
 
+# Habilita o mod_rewrite
 RUN a2enmod rewrite
 
+# Define index.php como ponto de entrada
 RUN echo "DirectoryIndex index.php" > /etc/apache2/conf-enabled/directoryindex.conf
 
+# Expõe a porta
 EXPOSE 80
+
