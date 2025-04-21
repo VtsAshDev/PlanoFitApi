@@ -9,7 +9,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $endpoint = basename($uri);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $endpoint === 'gerar-plano') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller = new PlanoController();
     $controller->gerarPlano($data);
 } else {
