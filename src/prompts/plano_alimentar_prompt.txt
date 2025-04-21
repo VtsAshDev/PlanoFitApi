@@ -1,0 +1,33 @@
+Crie um plano alimentar diário com 6 refeições para uma pessoa com os seguintes dados:
+
+- Idade: {{idade}} anos  
+- Altura: {{altura}} cm  
+- Peso: {{peso}} kg  
+- Objetivo: {{objetivo}}
+
+Formato desejado da resposta:
+
+1. Café da manhã:
+   - [alimentos e porções]
+   - [observações nutricionais]
+
+2. Lanche da manhã:
+   - ...
+
+3. Almoço:
+   - ...
+
+4. Lanche da tarde:
+   - ...
+
+5. Jantar:
+   - ...
+
+6. Ceia:
+   - ...
+
+Inclua:
+- Quantidades estimadas (em gramas ou unidades)
+- Alimentos variados e saudáveis
+- Dicas nutricionais relacionadas ao objetivo
+- Sugestão de substituições opcionais
