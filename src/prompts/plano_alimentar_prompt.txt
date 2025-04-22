@@ -4,7 +4,7 @@ Crie um plano alimentar diário com 6 refeições de baixo custo , para uma pess
 - Altura: {{altura}} cm  
 - Peso: {{peso}} kg  
 - Objetivo: {{objetivo}}
-
+- Taxa Metabolica basal : {{tmb}}
 Formato desejado da resposta:
 
 1. Café da manhã:

@@ -24,6 +24,7 @@ class PlanoController
           'altura' => $dados['altura'] ,
           'peso' => $dados['peso'],
           'objetivo' => $dados['objetivo'],
+          'tmb' => $dados['tmb'],
         ];
 
         $prompt = strtr($template, [
@@ -31,6 +32,7 @@ class PlanoController
           '{{altura}}' => $dados['altura'],
           '{{peso}}' => $dados['peso'],
           '{{objetivo}}' => $dados['objetivo'],
+          '{{tmb}}' => $dados['tmb'],
         ]);
 
         try {
