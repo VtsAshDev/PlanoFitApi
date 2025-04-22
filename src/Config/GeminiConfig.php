@@ -12,6 +12,6 @@ class GeminiConfig
         $dotenv->safeLoad();
 
         $apiKey = $_ENV['GEMINI_API_KEY'] ?? null;
-        return $apiKey ?: 'Chave da api não encontrada';
+        return $apiKey ?? 'Chave da api não encontrada';
     }
 }
