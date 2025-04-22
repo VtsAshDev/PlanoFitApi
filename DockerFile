@@ -1,35 +1,35 @@
-FROM php:8.2-apache
+# FROM php:8.2-apache
 
-RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    zip \
-    git \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y \
+#     libpng-dev \
+#     libjpeg62-turbo-dev \
+#     libfreetype6-dev \
+#     zip \
+#     git \
+#     && docker-php-ext-configure gd --with-freetype --with-jpeg \
+#     && docker-php-ext-install gd pdo pdo_mysql \
+#     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/html
+# WORKDIR /var/www/html
 
-COPY composer.json composer.lock* ./
-COPY src/ ./src/
-COPY public/ ./public/
+# COPY composer.json composer.lock* ./
+# COPY src/ ./src/
+# COPY public/ ./public/
 
 
-RUN composer install --no-dev --optimize-autoloader && composer dump-autoload --optimize --no-dev
+# RUN composer install --no-dev --optimize-autoloader && composer dump-autoload --optimize --no-dev
 
-RUN a2enmod rewrite
+# RUN a2enmod rewrite
 
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+# ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
-RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf && \
-    sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf
+# RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf && \
+#     sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf
 
-RUN echo "DirectoryIndex index.php" > /etc/apache2/conf-enabled/directoryindex.conf
+# RUN echo "DirectoryIndex index.php" > /etc/apache2/conf-enabled/directoryindex.conf
 
-EXPOSE 80
+# EXPOSE 80
 
 
