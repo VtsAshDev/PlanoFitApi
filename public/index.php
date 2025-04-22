@@ -19,8 +19,10 @@ use App\Controller\PlanoController;
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$endpoint = basename($uri);
+$uri = $_SERVER['REQUEST_URI'];
+$path = parse_url($uri, PHP_URL_PATH);
+$segments = explode('/', trim($path, '/'));
+$endpoint = end($segments);
 
 if ($endpoint === 'gerar-plano') {
     $controller = new PlanoController();
