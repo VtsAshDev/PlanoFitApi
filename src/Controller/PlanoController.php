@@ -35,8 +35,10 @@ class PlanoController
 
         try {
             $resposta = $gemini->gerarPlano($prompt);
+            
             $text = $resposta['candidates'][0]['content']['parts'][0]['text'] ?? 'Nenhum texto encontrado na resposta';
-
+            $text = nl2br($text);
+            
             header('Content-Type: application/json');
             echo json_encode([
               'status' => 'sucesso',

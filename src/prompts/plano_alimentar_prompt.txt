@@ -26,8 +26,9 @@ Formato desejado da resposta:
 6. Ceia:
    - ...
 
-Inclua:
-- Quantidades estimadas (em gramas ou unidades)
-- Alimentos variados e saudáveis
-- Dicas nutricionais relacionadas ao objetivo
-- Sugestão de substituições opcionais
+Certifique-se de:
+- Incluir quantidades estimadas (em gramas ou unidades)
+- Usar alimentos saudáveis e variados
+- Ajustar as recomendações de acordo com o objetivo
+- Incluir sugestões de substituições opcionais se necessário
+- A resposta deve ser formatada em HTML com as refeições organizadas de maneira clara.
