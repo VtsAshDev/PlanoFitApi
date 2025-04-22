@@ -19,16 +19,16 @@ use App\Controller\PlanoController;
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$uri = $_SERVER['REQUEST_URI'];
-$path = parse_url($uri, PHP_URL_PATH);
-$segments = explode('/', trim($path, '/'));
-$endpoint = end($segments);
+$method = $_SERVER['REQUEST_METHOD'];
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$endpoint = basename($uri);
 
-if ($endpoint === 'gerar-plano') {
+if ($method === 'POST' && $endpoint === 'generateplan') {
+    $data = json_decode(file_get_contents('php://input'), true);
     $controller = new PlanoController();
     $controller->gerarPlano($data);
 } else {
-    header('HTTP/1.1 404 Not Found');
+    http_response_code(404);
     echo json_encode(['error' => 'Endpoint não encontrado']);
 }
 
