@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Service;
+
 use App\Config\GeminiConfig;
+
 class GeminiService
 {
     private string $apiKey;
