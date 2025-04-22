@@ -26,7 +26,7 @@ Gera um plano alimentar com base no objetivo e preferências do usuário.
 ```
 #### 📄 Exemplo de requisição: 
 ```bash
-curl -X POST https://planofitapi.onrender.com/api/plano \
+curl -X POST https://planofitapi.onrender.com \
   -H "Content-Type: application/json" \
   -d '{
     "idade": 25,
