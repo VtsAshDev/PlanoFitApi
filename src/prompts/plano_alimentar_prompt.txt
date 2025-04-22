@@ -1,4 +1,4 @@
-Crie um plano alimentar diário com 6 refeições para uma pessoa com os seguintes dados:
+Crie um plano alimentar diário com 6 refeições de baixo custo , para uma pessoa com os seguintes dados:
 
 - Idade: {{idade}} anos  
 - Altura: {{altura}} cm  
