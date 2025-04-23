@@ -1,20 +1,5 @@
 <?php
 
-namespace App\Router;
+namespace App\Routes;
 
 use App\Controller\PlanoController;
-
-class Router
-{
-  private $routes = [];
-
-  public function add($method, $path, $callback)
- {
-    $this->routes[] = [
-      'method' => $method,
-      'path' => $path,
-      'callback' => $callback
-    ];
-  }
-
-}
