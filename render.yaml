@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: PlanoFitApi
+    env: docker
+    repo: https://github.com/VitorVts/PlanoFitApi
+    branch: main
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    autoDeploy: true
