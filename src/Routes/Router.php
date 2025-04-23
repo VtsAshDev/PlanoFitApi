@@ -2,4 +2,10 @@
 
 namespace App\Routes;
 
-use App\Controller\PlanoController;
+class Router
+{
+
+
+
+
+}

@@ -17,18 +17,15 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controller\PlanoController;
 
-$data = json_decode(file_get_contents('php://input'), true);
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $endpoint = basename($uri);
 
-var_dump($endpoint);
-
 if ($endpoint === 'gerar-plano' && $method === 'POST') {
-    $data = json_decode(file_get_contents('php://input'), true);
     $controller = new PlanoController();
-    $controller->gerarPlano($data);
+    $controller->gerarPlano();
 } else {
     http_response_code(404);
     echo json_encode(['error' => 'Endpoint não encontrado']);
