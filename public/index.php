@@ -23,7 +23,9 @@ $method = $_SERVER['REQUEST_METHOD'];
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $endpoint = basename($uri);
 
-if ($method === 'POST') {
+var_dump($endpoint);
+
+if ($endpoint === 'gerar-plano' && $method === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
     $controller = new PlanoController();
     $controller->gerarPlano($data);
