@@ -25,4 +25,4 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: 🧪 Rodar PHPUnit
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit ./tests/
