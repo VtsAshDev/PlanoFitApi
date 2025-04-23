@@ -7,18 +7,20 @@ use Exception;
 
 class PlanoController
 {
-    public function gerarPlano()
+    public function gerarPlano(): void
     {
         $dados = json_decode(file_get_contents('php://input'), true);
         $gemini = new GeminiService();
         $path = __DIR__ . '/../prompts/plano_alimentar_prompt.txt';
 
         if (!file_exists($path)) {
-            return $this->respostaErro('Arquivo de prompt não encontrado.');
+            $this->respostaErro('Arquivo de prompt não encontrado.');
+            return;
         }
           $template = file_get_contents($path);
         if ($template === false) {
-            return $this->respostaErro('Erro ao ler o arquivo de prompt.');
+            $this->respostaErro('Erro ao ler o arquivo de prompt.');
+            return;
         }
 
         $dados = [
@@ -43,18 +45,15 @@ class PlanoController
             $text = $resposta['candidates'][0]['content']['parts'][0]['text'] ?? 'Nenhum texto encontrado na resposta';
             $text = nl2br($text);
             
-            header('Content-Type: application/json');
-            echo json_encode([
-              'status' => 'sucesso',
-              'resposta' => $text
-            ]);
+           $this->respostaSucesso($text);
             exit;
         } catch (Exception $e) {
-              return "Erro: " . $e->getMessage();
+              $this->respostaErro('Erro ao gerar o plano: ' . $e->getMessage());
+              return;
         }
     }
 
-    private function respostaSucesso($dados)
+    private function respostaSucesso($dados): void
     {
         header('Content-Type: application/json');
         echo json_encode([
@@ -63,7 +62,7 @@ class PlanoController
         ]);
     }
 
-    private function respostaErro($mensagem)
+    private function respostaErro($mensagem): void
     {
         header('Content-Type: application/json');
         echo json_encode([
