@@ -12,7 +12,7 @@ class PlanoController
         $dados = json_decode(file_get_contents('php://input'), true);
         $gemini = new GeminiService();
         $path = __DIR__ . '/../prompts/plano_alimentar_prompt.txt';
-        
+
         if (!file_exists($path)) {
             return $this->respostaErro('Arquivo de prompt não encontrado.');
         }
