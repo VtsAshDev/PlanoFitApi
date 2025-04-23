@@ -22,7 +22,7 @@ jobs:
           coverage: none
 
       - name: Instalar dependências (Composer)
-        run: composer install --no-interaction --prefer-dist
+        run: composer install
 
       - name: Rodar PHPUnit
         run: ./vendor/bin/phpunit
