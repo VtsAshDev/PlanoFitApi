@@ -1,0 +1,28 @@
+name: Run PHPUnit Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  php-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar PHP com extensões
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, curl, dom
+          coverage: none
+
+      - name: Instalar dependências (Composer)
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Rodar PHPUnit
+        run: ./vendor/bin/phpunit

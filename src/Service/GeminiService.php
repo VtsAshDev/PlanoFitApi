@@ -52,7 +52,6 @@ class GeminiService
         }
 
         curl_close($ch);
-
         return json_decode($response, true);
     }
 }
