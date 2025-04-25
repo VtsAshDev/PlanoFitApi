@@ -26,7 +26,3 @@ jobs:
 
       - name: 🧪 Rodar PHPUnit
         run: ./vendor/bin/phpunit ./tests/
-autoDeploy:
-  needs: php-tests
-  runs-on: ubuntu-latest
-  if: success()
